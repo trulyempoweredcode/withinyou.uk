@@ -45,3 +45,18 @@
   --text-h2-desktop: 2rem;
   --text-h3-desktop: 1.3rem;
 }
+
+/* === Fees page tuning (site-specific) === */
+/* Item titles are <h2> for correct heading order (H1 -> H2); keep them card-title sized, not the full 2rem H2 */
+.fee-table h2 {
+  font-size: var(--text-h3-desktop);
+  margin-bottom: var(--space-lg);
+}
+/* Top-align the name and price so the price sits level with the item name, detail flows below */
+.fee-item {
+  align-items: flex-start;
+}
+/* Prices were oversized (text-xl/26px, larger than the title); bring them in line */
+.fee-item__price {
+  font-size: 1.25rem;
+}
