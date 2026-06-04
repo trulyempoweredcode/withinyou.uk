@@ -1,0 +1,47 @@
+/* =============================================
+   THEME: Trusty Blue
+   Professional, trustworthy — clinical hypnotherapy & counselling
+   Font Pairing: Friendly (Poppins headings / Merriweather body)
+   ============================================= */
+
+/* --- Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Merriweather:wght@300;400;700&display=swap');
+
+/* --- Theme Variables --- */
+:root {
+  /* Colour Palette */
+  --color-primary: #3B6FA0;
+  --color-primary-light: #5A8FBF;
+  --color-primary-dark: #2A5178;
+  --color-secondary: #D4956A;
+  --color-secondary-light: #E2B08A;
+  --color-secondary-dark: #A06B3E;
+  --color-accent: #6B8E7B;
+  --color-accent-light: #8FB3A0;
+
+  --color-bg: #F8FAFB;
+  --color-bg-alt: #ECF1F4;
+  --color-bg-dark: #1E3A52;
+  --color-surface: #FFFFFF;
+  --color-surface-alt: #F2F6F8;
+
+  --color-text: #2D3748;
+  --color-text-light: #64748B;
+  --color-text-inverse: #F8FAFB;
+  --color-text-heading: #1E3A52;
+
+  --color-border: #D4DCE4;
+  --color-border-light: #E8EDF2;
+
+  --color-success: #3B8F6F;
+  --color-error: #C45B5B;
+
+  /* Typography */
+  --font-heading: 'Poppins', 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Merriweather', Georgia, 'Times New Roman', serif;
+
+  /* Heading size overrides (Poppins renders visually larger) */
+  --text-h1-desktop: 2.5rem;
+  --text-h2-desktop: 2rem;
+  --text-h3-desktop: 1.3rem;
+}
