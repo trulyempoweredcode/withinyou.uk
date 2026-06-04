@@ -63,45 +63,62 @@
 
 /* =============================================
    Site-scoped scroll-reveal polish
-   Reuses the framework's .reveal / .reveal--visible trigger (set by js/main.js)
-   to cascade components that otherwise fade in as one block — the icon lists
-   (quals-list) and the stacked fee tables. CSS-only, reduced-motion aware.
-   Mirrors the framework grid cascade (0.5s ease, staggered transition-delay).
+   Reuses the framework's .reveal / .reveal--visible trigger (set by js/main.js).
+   Makes the section + box entrances clearly visible and graceful, and extends
+   the staggered cascade to the icon lists (quals-list) and stacked fee tables.
+   Everything is wrapped in (prefers-reduced-motion: no-preference) so visitors
+   who ask their OS/browser for reduced motion get a clean, static page instead.
+   No JS, no framework change.
    ============================================= */
-.reveal .quals-list > *,
-.reveal .fee-table {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-.reveal--visible .quals-list > *,
-.reveal--visible .fee-table {
-  opacity: 1;
-  transform: translateY(0);
-}
+@media (prefers-reduced-motion: no-preference) {
 
-/* Fee tables: 3 stacked boxes, 0.1s cadence (matches framework grids) */
-.reveal--visible .fee-table:nth-child(1) { transition-delay: 0s; }
-.reveal--visible .fee-table:nth-child(2) { transition-delay: 0.1s; }
-.reveal--visible .fee-table:nth-child(3) { transition-delay: 0.2s; }
+  /* Stronger, smoother section entrance (framework default is a subtle 24px) */
+  .reveal {
+    transform: translateY(36px);
+    transition: opacity 0.7s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal--visible {
+    transform: translateY(0);
+  }
 
-/* Icon lists: up to 10 items, tighter 0.06s cadence so the whole cascade stays ~0.6s */
-.reveal--visible .quals-list > *:nth-child(1)  { transition-delay: 0s; }
-.reveal--visible .quals-list > *:nth-child(2)  { transition-delay: 0.06s; }
-.reveal--visible .quals-list > *:nth-child(3)  { transition-delay: 0.12s; }
-.reveal--visible .quals-list > *:nth-child(4)  { transition-delay: 0.18s; }
-.reveal--visible .quals-list > *:nth-child(5)  { transition-delay: 0.24s; }
-.reveal--visible .quals-list > *:nth-child(6)  { transition-delay: 0.30s; }
-.reveal--visible .quals-list > *:nth-child(7)  { transition-delay: 0.36s; }
-.reveal--visible .quals-list > *:nth-child(8)  { transition-delay: 0.42s; }
-.reveal--visible .quals-list > *:nth-child(9)  { transition-delay: 0.48s; }
-.reveal--visible .quals-list > *:nth-child(10) { transition-delay: 0.54s; }
-
-@media (prefers-reduced-motion: reduce) {
+  /* Lift box-children further with a graceful decel — covers framework grids/steps
+     PLUS the icon lists and fee tables that previously revealed as one block */
+  .reveal .grid--2 > *,
+  .reveal .grid--3 > *,
+  .reveal .grid--4 > *,
+  .reveal .steps > *,
+  .reveal .pricing-grid > *,
   .reveal .quals-list > *,
   .reveal .fee-table {
-    opacity: 1;
-    transform: none;
-    transition: none;
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.6s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   }
+  .reveal--visible .grid--2 > *,
+  .reveal--visible .grid--3 > *,
+  .reveal--visible .grid--4 > *,
+  .reveal--visible .steps > *,
+  .reveal--visible .pricing-grid > *,
+  .reveal--visible .quals-list > *,
+  .reveal--visible .fee-table {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Stagger the fee tables (3 stacked boxes) */
+  .reveal--visible .fee-table:nth-child(1) { transition-delay: 0s; }
+  .reveal--visible .fee-table:nth-child(2) { transition-delay: 0.12s; }
+  .reveal--visible .fee-table:nth-child(3) { transition-delay: 0.24s; }
+
+  /* Stagger the icon lists (up to 10 items) */
+  .reveal--visible .quals-list > *:nth-child(1)  { transition-delay: 0s; }
+  .reveal--visible .quals-list > *:nth-child(2)  { transition-delay: 0.07s; }
+  .reveal--visible .quals-list > *:nth-child(3)  { transition-delay: 0.14s; }
+  .reveal--visible .quals-list > *:nth-child(4)  { transition-delay: 0.21s; }
+  .reveal--visible .quals-list > *:nth-child(5)  { transition-delay: 0.28s; }
+  .reveal--visible .quals-list > *:nth-child(6)  { transition-delay: 0.35s; }
+  .reveal--visible .quals-list > *:nth-child(7)  { transition-delay: 0.42s; }
+  .reveal--visible .quals-list > *:nth-child(8)  { transition-delay: 0.49s; }
+  .reveal--visible .quals-list > *:nth-child(9)  { transition-delay: 0.56s; }
+  .reveal--visible .quals-list > *:nth-child(10) { transition-delay: 0.63s; }
 }
