@@ -122,3 +122,13 @@
   .reveal--visible .quals-list > *:nth-child(9)  { transition-delay: 0.56s; }
   .reveal--visible .quals-list > *:nth-child(10) { transition-delay: 0.63s; }
 }
+
+/* Reveal trigger: an element that fires its children's cascade when IT enters
+   view, without animating itself. Use where the cascade content sits far below
+   the section top (e.g. a list under a heading + intro), so the section-level
+   reveal would otherwise fire the cascade while the items are still off-screen. */
+.reveal-trigger {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
