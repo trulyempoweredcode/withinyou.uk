@@ -223,8 +223,8 @@
           <div class="card contact-form-card">
             <h2>Send a Message</h2>
             <p>Fill in the form below and I'll get back to you as soon as I can. Tell me a little about what you'd like help with — there's no need to go into detail unless you want to.</p>
-            <!-- The {site_id} placeholder is auto-replaced with the real numeric site ID by the CMS when the site is registered (or via the admin "fix form" button). Leave the exact token below. -->
-            <form class="form" action="https://editmy.site/api/form/{site_id}" method="POST" data-thank-you="Thank you for your message. I will be in touch as soon as I can.">
+            <!-- Connected to CMS site id 9 (was the {site_id} placeholder). -->
+            <form class="form" action="https://editmy.site/api/form/9" method="POST" data-thank-you="Thank you for your message. I will be in touch as soon as I can.">
               <div style="display:none"><input type="text" name="_hp" tabindex="-1" autocomplete="off"></div>
               <input type="hidden" name="_t" value="">
               <input type="hidden" name="_page" value="">
