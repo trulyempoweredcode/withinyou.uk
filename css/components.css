@@ -3612,7 +3612,8 @@ a.card--service:hover .card__link {
   line-height: var(--line-height-relaxed);
 }
 
-.split__text .btn {
+.split__text .btn,
+.split__content .btn {
   margin-top: var(--space-lg);
 }
 
@@ -3663,7 +3664,8 @@ a.card--service:hover .card__link {
     gap: var(--space-3xl);
   }
 
-  .split--reverse .split__text {
+  .split--reverse .split__text,
+  .split--reverse .split__content {
     order: 2;
   }
 
@@ -3948,10 +3950,13 @@ a.card--service:hover .card__link {
   flex: 1;
 }
 
+/* --text-base, matching .card__text, so all secondary prose sits at one size.
+   At --text-sm this dropped 19px body copy to 16px inside a callout that often
+   sits directly under body copy, which reads as an inconsistent type scale. */
 .highlight-box__content p {
   color: var(--color-text-light);
   line-height: var(--line-height-relaxed);
-  font-size: var(--text-sm);
+  font-size: var(--text-base);
   margin: 0 0 var(--space-md);
 }
 
@@ -4920,6 +4925,14 @@ a.card--service:hover .card__link {
   grid-template-columns: 1fr;
   gap: var(--space-lg);
   text-align: center;
+  /* Self-centering safety net: the band spans full width, the items stay
+     centred to the content width even if the author forgets `.container`
+     on this element. Redundant (harmless) when `.container` is present. */
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-lg);
+  padding-right: var(--space-lg);
 }
 
 .info-band__item {
@@ -4948,8 +4961,11 @@ a.card--service:hover .card__link {
 
 .info-band__title {
   font-family: var(--font-heading);
-  font-size: var(--text-md);
+  font-size: var(--text-lg);
   font-weight: var(--font-weight-semibold);
+  line-height: 1.25;
+  display: block;
+  margin-bottom: 2px;
 }
 
 .info-band__text {
@@ -4959,8 +4975,19 @@ a.card--service:hover .card__link {
 }
 
 /* Primary colour variant */
+/* The gradient's light stop is tokenised so a site can tune the band without
+   forking this file. Default is unchanged, so existing sites are unaffected. */
 .info-band--primary {
-  background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+  background: linear-gradient(135deg, var(--info-band-from, var(--color-primary-dark)) 0%, var(--color-primary) 100%);
+}
+
+/* A lighter gradient stop pushes both the inverse-cream title (~4.3:1) and the
+   muted 70%-white sub-line (~3.1:1) below AA on a mid-tone clay. Pure white on
+   the primary variant clears 4.5:1 at both gradient stops without relying on a
+   borderline "large text" exemption; hierarchy still comes from size + typeface. */
+.info-band--primary,
+.info-band--primary .info-band__text {
+  color: var(--info-band-text, #FFFFFF);
 }
 
 .info-band--primary .info-band__icon {

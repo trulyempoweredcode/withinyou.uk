@@ -150,3 +150,22 @@ main > .section--alt + .section--alt:not(.section--dark):not(.cta-banner) {
 }
 
 /* === END BACKFILL === */
+
+
+/* === BACKFILL: rules dropped by template update to v1.7.6 ===
+   2 rule(s) preserved automatically because their classes are
+   still referenced in this site's HTML. Move into proper site partials
+   if you want, but do NOT delete unless you've also removed the markup.
+   ===================================================== */
+
+.split__text .btn {
+  margin-top: var(--space-lg);
+}
+
+@media (min-width: 768px) {
+  .split--reverse .split__text {
+      order: 2;
+    }
+}
+
+/* === END BACKFILL === */
