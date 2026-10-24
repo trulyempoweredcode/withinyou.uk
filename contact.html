@@ -51,6 +51,31 @@
   }
   </script>
   <!-- /PROFILE:schema -->
+<script type="application/ld+json" data-te-schema="1">
+{
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "BreadcrumbList",
+            "@id": "https://www.withinyou.uk/contact.html#breadcrumb",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://www.withinyou.uk/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Contact",
+                    "item": "https://www.withinyou.uk/contact.html"
+                }
+            ]
+        }
+    ]
+}
+</script>
 <!-- BEACON -->
 <script>(function(){try{var u="https:\/\/editmy.site\/api\/hit\/9";var d=JSON.stringify({p:location.pathname,r:document.referrer});if(navigator.sendBeacon){navigator.sendBeacon(u,d);}else{fetch(u,{method:"POST",keepalive:true,body:d});}}catch(e){}})();</script>
 <!-- /BEACON -->
