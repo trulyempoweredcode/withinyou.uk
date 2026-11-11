@@ -204,3 +204,20 @@ main > .section--alt + .section--alt:not(.section--dark):not(.cta-banner) {
 }
 
 /* === END BACKFILL === */
+
+
+/* === BACKFILL: rules dropped by template update to v1.7.28 ===
+   1 rule(s) preserved automatically because their classes are
+   still referenced in this site's HTML. Move into proper site partials
+   if you want, but do NOT delete unless you've also removed the markup.
+   ===================================================== */
+
+.intro__image,
+.about-hero__image,
+.team-member__image,
+.team-list-item__avatar,
+.testimonial__avatar {
+  object-position: var(--photo-focus, center 20%);
+}
+
+/* === END BACKFILL === */
